@@ -1,0 +1,32 @@
+#3.	Genera otra función para automatizar la generación de una gráfica con los nacimientos por año. Utiliza en la misma dos parámetros: año de inicio y año de fin. (2)
+rm(list = ls())
+datos96<-read.csv('fichero_final_nac_1996.csv', sep=';')
+datos97<-read.csv('fichero_final_nac_1997.csv', sep=';')
+datos98<-read.csv('fichero_final_nac_1998.csv', sep=';')
+datos99<-read.csv('fichero_final_nac_1999.csv', sep=';')
+datos00<-read.csv('fichero_final_nac_2000.csv', sep=';')
+datos01<-read.csv('fichero_final_nac_2001.csv', sep=';')
+datos02<-read.csv('fichero_final_nac_2002.csv', sep=';')
+datos03<-read.csv('fichero_final_nac_2003.csv', sep=';')
+datos04<-read.csv('fichero_final_nac_2004.csv', sep=';')
+datos05<-read.csv('fichero_final_nac_2005.csv', sep=';')
+datos15<-read.csv('fichero_final_nac_2015.csv', sep=';')
+datos14<-read.csv('fichero_final_nac_2014.csv', sep=';')
+datos13<-read.csv('fichero_final_nac_2013.csv', sep=';')
+datos12<-read.csv('fichero_final_nac_2012.csv', sep=';')
+datos11<-read.csv('fichero_final_nac_2011.csv', sep=';')
+datos10<-read.csv('fichero_final_nac_2010.csv', sep=';')
+datos09<-read.csv('fichero_final_nac_2009.csv', sep=';')
+datos07<-read.csv('fichero_final_nac_2007.csv', sep=';')
+datos08<-read.csv('fichero_final_nac_2008.csv', sep=';')
+datos06<-read.csv('fichero_final_nac_2006.csv', sep=';')
+datos<-rbind(datos00,datos01,datos02,datos03,datos04,datos05,datos06,datos07,datos08,datos09,datos10,datos11,datos12,datos13,datos14,datos15,datos96,datos97,datos98,datos99)
+
+library(ggplot2)
+
+funcion2<-function(ano_inicio,ano_fin){
+  grafico<-ggplot(datos, aes(x=PAE_ANON))+geom_bar()+scale_x_continuous(limits = c(ano_inicio-1,ano_fin+1), breaks = seq(ano_inicio,ano_fin,1))+labs(x='año',y='cantidad')
+  print(grafico)
+}
+funcion2(2000,2005)
+
